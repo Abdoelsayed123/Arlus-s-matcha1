@@ -17,6 +17,8 @@ const menuCatalog = {
 };
 
 function renderCart() {
+  if (!cartCount || !orderItems || !orderSubmit) return;
+
   const language = document.documentElement.lang;
   const isEnglish = language === "en";
   const totalItems = [...cart.values()].reduce((total, quantity) => total + quantity, 0);
@@ -76,7 +78,7 @@ function changeQuantity(key, change) {
   renderCart();
 }
 
-languageToggle.addEventListener("click", () => {
+languageToggle?.addEventListener("click", () => {
   const isArabic = document.documentElement.lang === "ar";
   const language = isArabic ? "en" : "ar";
   document.documentElement.lang = language;
@@ -112,12 +114,12 @@ languageToggle.addEventListener("click", () => {
   renderCart();
 });
 
-menuList.addEventListener("click", (event) => {
+menuList?.addEventListener("click", (event) => {
   const button = event.target.closest(".menu-add");
   if (button) changeQuantity(button.dataset.item, 1);
 });
 
-orderSubmit.addEventListener("click", () => {
+orderSubmit?.addEventListener("click", () => {
   if (cart.size === 0) return;
 
   const language = document.documentElement.lang;
@@ -137,14 +139,14 @@ orderSubmit.addEventListener("click", () => {
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 });
 
-menuToggle.addEventListener("click", () => {
+menuToggle?.addEventListener("click", () => {
   const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
   menuToggle.setAttribute("aria-expanded", String(!isOpen));
   menuToggle.setAttribute("aria-label", isOpen ? "فتح القائمة" : "إغلاق القائمة");
   siteNav.classList.toggle("is-open", !isOpen);
 });
 
-siteNav.addEventListener("click", (event) => {
+siteNav?.addEventListener("click", (event) => {
   if (event.target.closest("a")) {
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "فتح القائمة");
