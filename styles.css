@@ -146,6 +146,9 @@ body[lang="en"] .service-copy p { font-family: var(--font-latin); line-height: 1
 .footer-wordmark { font-size: 15px; }
 .footer-wordmark .wordmark-leaf { width: 25px; height: 25px; font-size: 14px; }
 .footer-note, .back-top { color: var(--muted); font-size: 10px; }
+.footer-whatsapp { display: inline-flex; align-items: center; gap: 9px; padding: 10px 13px; background: var(--green); color: white; font-size: 10px; font-weight: 700; transition: background .2s ease; }
+.footer-whatsapp:hover { background: #53694c; }
+.footer-whatsapp span:last-child { color: var(--leaf); font-family: var(--font-latin); font-size: 14px; }
 .back-top span:last-child { margin-inline-start: 7px; color: var(--coral); font-family: var(--font-latin); font-size: 14px; }
 
 @keyframes arrive { from { transform: scale(1.035); opacity: .75; } to { transform: scale(1); opacity: 1; } }
@@ -213,8 +216,10 @@ body[lang="en"] .service-copy p { font-family: var(--font-latin); line-height: 1
   .service-grid { grid-template-columns: 1fr; gap: 18px; margin-top: 27px; }
   .service-grid h2 { font-size: 34px; }
   .service-copy p { font-size: 12px; }
-  .site-footer { min-height: 76px; padding-inline: 6%; }
+  .site-footer { min-height: 76px; padding: 16px 6%; gap: 12px; flex-wrap: wrap; }
   .footer-note { display: none; }
+  .footer-whatsapp { order: 3; }
+  .back-top { margin-inline-start: auto; }
 }
 
 @media (prefers-reduced-motion: reduce) {
